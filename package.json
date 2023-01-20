@@ -2,6 +2,7 @@
   "name": "javier-arocena-factorial",
   "version": "1.0.0",
   "scripts": {
+    "mock:backend": "cd backend && npm run mock",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
     "dev": "npm run dev:backend & npm run dev:frontend",
