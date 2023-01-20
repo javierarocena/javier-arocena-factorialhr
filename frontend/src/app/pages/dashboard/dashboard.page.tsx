@@ -5,7 +5,6 @@ import { Timeline } from "./components/timeline/timeline"
 import { useTimeline } from "./components/timeline/useTimeline"
 import { SalesTotal } from "./components/sections/sales-total"
 import { SalesVolumeByProduct } from "./components/sections/sales-volume-by-product"
-import { RangeTitle } from "./components/timeline/range-title"
 
 
 export const DashboardPage = () => {
@@ -20,7 +19,6 @@ export const DashboardPage = () => {
             <SalesTotal metrics={metrics ?? []} />
             <SalesVolumeByProduct metrics={metrics ?? []} />
         </div>
-        <RangeTitle currentRange={range} rangeType={rangeType} />
         <Timeline onChange={(range) => setRange(range)} />
     </div>
 }

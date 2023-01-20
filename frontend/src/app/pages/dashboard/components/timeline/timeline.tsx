@@ -44,14 +44,18 @@ export const Timeline = ({ onChange }: TimelineProps) => {
 
     const getMarkByRangeType = (index: Key | null | undefined) => {
         if (index === null || index === undefined) return 1
+        const date = getDateBykey(+index)
+
         if (rangeType === "days") {
-            return getDateBykey(+index)?.getDate()
+            return date.getDate() + "/" + (date.getMonth() + 1)
         }
+
         if (rangeType === "hours") {
-            return getDateBykey(+index)?.getHours()
+            return date?.getHours() + "h"
         }
+
         if (rangeType === "minutes") {
-            return getDateBykey(+index)?.getMinutes()
+            return date.getHours() + ":" + date.getMinutes()
         }
     }
 

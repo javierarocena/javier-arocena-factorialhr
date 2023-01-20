@@ -13,7 +13,7 @@ export const SalesVolumeByProduct = ({ metrics }: SalesVolumeByProductProps) => 
     const getData = () => {
         const data: bubbleData[] = []
         const sampleArray = metrics.filter(metric => metric.name === 'purchase_product').map(metric => metric.value)
-        const counts: any = {};
+        const counts: { [productId: string]: number } = {};
         sampleArray.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; });
         Object.keys(counts).forEach(((k: string) => {
             const product = getProductById(parseInt(k))
