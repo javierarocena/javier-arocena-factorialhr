@@ -7,6 +7,7 @@ import { PurchaseUI } from "./components/purchase.ui"
 import toast, { Toaster } from 'react-hot-toast';
 import { Product } from "../../../domain/product/product.model"
 import "./restaurant.page.css"
+import "../../pages/dashboard/components/sections/sections.css"
 
 export const RestaurantPage = () => {
 
@@ -18,7 +19,7 @@ export const RestaurantPage = () => {
         purchaseProduct(product)
     }
 
-    return <div>
+    return <div className="chart-section" style={{ width: "100%", boxSizing: "content-box", flex: "1 1 auto", overflow: "auto" }}>
         <h1>Restaurant</h1>
         <div className="gallery">
             {getAllProduct().map((product) => {

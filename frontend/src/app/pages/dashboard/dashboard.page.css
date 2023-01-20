@@ -1,0 +1,14 @@
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.charts-wrapper {
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+    flex: 1 1 auto;
+    height: 0;
+    box-sizing: border-box;
+}

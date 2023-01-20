@@ -1,6 +1,6 @@
 export interface Metric {
   name: MetricNames;
-  value: number;
+  value: string;
   timestamp: string;
 }
 

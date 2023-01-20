@@ -60,9 +60,11 @@ export const Timeline = ({ onChange }: TimelineProps) => {
     }
 
     return <div className="timeline">
-        <button onClick={() => setRangeType('days')}>Day</button>
-        <button onClick={() => setRangeType('hours')}>Hour</button>
-        <button onClick={() => setRangeType('minutes')}>Minute</button>
+        <div className="rangetype-box">
+            <button onClick={() => setRangeType('days')}>Day</button>
+            <button onClick={() => setRangeType('hours')}>Hour</button>
+            <button onClick={() => setRangeType('minutes')}>Minute</button>
+        </div>
 
         <ReactSlider
             onChange={sliderChangeHandler}
@@ -74,7 +76,7 @@ export const Timeline = ({ onChange }: TimelineProps) => {
             thumbClassName="example-thumb"
             trackClassName="example-track"
             renderMark={(props) => <span {...props}>{
-                <span style={{ color: "red", position: "relative", top: "28px" }}>
+                <span style={{ color: "#999", position: "relative", top: "28px" }}>
                     {getMarkByRangeType(props.key)}
                 </span>
             }</span>}

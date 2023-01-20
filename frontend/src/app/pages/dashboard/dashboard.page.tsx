@@ -5,7 +5,9 @@ import { Timeline } from "./components/timeline/timeline"
 import { useTimeline } from "./components/timeline/useTimeline"
 import { SalesTotal } from "./components/sections/sales-total"
 import { SalesVolumeByProduct } from "./components/sections/sales-volume-by-product"
-
+import "./dashboard.page.css"
+import { SalesList } from "./components/sections/sales-list"
+import { RestaurantPage } from "../restaurant/restaurant.page"
 
 export const DashboardPage = () => {
 
@@ -14,10 +16,15 @@ export const DashboardPage = () => {
     const { getMetrics } = useMetric(new MetricDevRepository())
     const { data: metrics, isLoading } = useSWR(range, getMetrics)
 
-    return <div>
-        <div style={{ opacity: isLoading ? 0.5 : 1 }}>
-            <SalesTotal metrics={metrics ?? []} />
+    return <div className="dashboard-wrapper">
+        <div className="charts-wrapper" style={{ opacity: isLoading ? 0.5 : 1 }}>
+            <div>
+                <SalesTotal metrics={metrics ?? []} />
+                <div style={{ height: "2rem" }} />
+                <SalesList metrics={metrics ?? []} />
+            </div>
             <SalesVolumeByProduct metrics={metrics ?? []} />
+            <RestaurantPage />
         </div>
         <Timeline onChange={(range) => setRange(range)} />
     </div>

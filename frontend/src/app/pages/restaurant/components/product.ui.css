@@ -4,8 +4,24 @@
     text-align: center;
 }
 
+.product-item.size-small {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    text-align: left;
+    font-size: 0.9rem;
+    font-weight: lighter;
+    gap: 1rem;
+}
+
+.product-item.size-small .thumbnail {
+    height: 60px;
+    width: 60px;
+    margin: 8px 0;
+}
+
 .thumbnail {
-    width: 100px;
+    width: 100%;
     height: 100px;
     object-fit: cover;
     border-radius: 12px;
