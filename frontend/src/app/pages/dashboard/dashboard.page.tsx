@@ -5,22 +5,22 @@ import { Timeline } from "./components/timeline/timeline"
 import { useTimeline } from "./components/timeline/useTimeline"
 import { SalesTotal } from "./components/sections/sales-total"
 import { SalesVolumeByProduct } from "./components/sections/sales-volume-by-product"
+import { RangeTitle } from "./components/timeline/range-title"
 
 
 export const DashboardPage = () => {
 
-    const { range, setRange } = useTimeline()
+    const { range, setRange, rangeType } = useTimeline()
 
     const { getMetrics } = useMetric(new MetricDevRepository())
-    const { data: metrics, error, isLoading } = useSWR(range, getMetrics)
-
-    if (isLoading) return <p>Loading...</p>
-    if (error) return <p>Error {JSON.stringify(error)}</p>
-    if (!metrics) return <p>No data...</p>
+    const { data: metrics, isLoading } = useSWR(range, getMetrics)
 
     return <div>
-        <SalesTotal metrics={metrics} />
-        <SalesVolumeByProduct metrics={metrics} />
-        <Timeline currentRange={range} onChange={(range) => setRange(range)} />
+        <div style={{ opacity: isLoading ? 0.5 : 1 }}>
+            <SalesTotal metrics={metrics ?? []} />
+            <SalesVolumeByProduct metrics={metrics ?? []} />
+        </div>
+        <RangeTitle currentRange={range} rangeType={rangeType} />
+        <Timeline onChange={(range) => setRange(range)} />
     </div>
 }
