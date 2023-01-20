@@ -1,5 +1,9 @@
 # FactorialHR JavierArocena Challenge
 
+<!-- imagen del gif demo -->
+
+![alt text](./demo.gif)
+
 ### How to set it up
 
 Install dependencies:
