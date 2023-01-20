@@ -1,5 +1,6 @@
 import { MetricRepository } from "./metric.repository.model";
 import { Product } from "../product/product.model";
+import { DateRange } from "./date-range.model";
 
 export const useMetric = (repository: MetricRepository) => {
   const purchaseProduct = (product: Product) => {
@@ -10,7 +11,12 @@ export const useMetric = (repository: MetricRepository) => {
     });
   };
 
+  const getMetrics = (range: DateRange) => {
+    return repository.getMetrics(range);
+  };
+
   return {
     purchaseProduct,
+    getMetrics,
   };
 };

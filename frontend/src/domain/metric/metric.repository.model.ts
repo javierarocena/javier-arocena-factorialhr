@@ -1,6 +1,7 @@
+import { DateRange } from "./date-range.model";
 import { Metric } from "./metric.model";
 
 export interface MetricRepository {
-  getMetrics(): Promise<Metric[]>;
+  getMetrics(range: DateRange): Promise<Metric[]>;
   postMetric(metric: Metric): Promise<Response>;
 }
