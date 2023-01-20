@@ -4,6 +4,7 @@ import useSWR from 'swr'
 import { Timeline } from "./components/timeline/timeline"
 import { useTimeline } from "./components/timeline/useTimeline"
 import { SalesTotal } from "./components/sections/sales-total"
+import { SalesVolumeByProduct } from "./components/sections/sales-volume-by-product"
 
 
 export const DashboardPage = () => {
@@ -19,6 +20,7 @@ export const DashboardPage = () => {
 
     return <div>
         <SalesTotal metrics={metrics} />
+        <SalesVolumeByProduct metrics={metrics} />
         <Timeline currentRange={range} onChange={(range) => setRange(range)} />
     </div>
 }

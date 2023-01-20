@@ -6,7 +6,12 @@ export const useProduct = (repository: ProductRepository) => {
     return repository.getProducts();
   };
 
+  const getProductById = (id: number): Product | undefined => {
+    return repository.getProductById(id);
+  };
+
   return {
     getAllProduct,
+    getProductById,
   };
 };
