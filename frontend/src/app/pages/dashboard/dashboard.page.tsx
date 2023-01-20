@@ -3,6 +3,7 @@ import { MetricDevRepository } from "../../repository/metrics/metrics.dev.reposi
 import useSWR from 'swr'
 import { Timeline } from "./components/timeline/timeline"
 import { useTimeline } from "./components/timeline/useTimeline"
+import { SalesTotal } from "./components/sections/sales-total"
 
 
 export const DashboardPage = () => {
@@ -14,9 +15,10 @@ export const DashboardPage = () => {
 
     if (isLoading) return <p>Loading...</p>
     if (error) return <p>Error {JSON.stringify(error)}</p>
+    if (!metrics) return <p>No data...</p>
 
     return <div>
+        <SalesTotal metrics={metrics} />
         <Timeline currentRange={range} onChange={(range) => setRange(range)} />
-        {metrics?.map((metric, key) => <li key={key}>{metric.timestamp}</li>)}
     </div>
 }
