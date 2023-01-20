@@ -1,0 +1,12 @@
+.product-item {
+    height: 100%;
+    width: 120px;
+    text-align: center;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+}

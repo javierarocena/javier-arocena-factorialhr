@@ -55,7 +55,7 @@ export const Timeline = ({ onChange }: TimelineProps) => {
         }
     }
 
-    return <div>
+    return <div className="timeline">
         <button onClick={() => setRangeType('days')}>Day</button>
         <button onClick={() => setRangeType('hours')}>Hour</button>
         <button onClick={() => setRangeType('minutes')}>Minute</button>
@@ -70,11 +70,12 @@ export const Timeline = ({ onChange }: TimelineProps) => {
             thumbClassName="example-thumb"
             trackClassName="example-track"
             renderMark={(props) => <span {...props}>{
-                <span title={JSON.stringify(props)} style={{ color: "red", position: "relative", top: "22px" }}>{getMarkByRangeType(props.key)}</span>
+                <span style={{ color: "red", position: "relative", top: "28px" }}>
+                    {getMarkByRangeType(props.key)}
+                </span>
             }</span>}
             renderThumb={(props, state) => <div {...props}>{getMarkByRangeType(state.valueNow)}</div>}
         />
-        <h3>{rangeType}</h3>
 
     </div >
 }

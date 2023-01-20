@@ -4,18 +4,29 @@ import { MetricDevRepository } from "../../repository/metrics/metrics.dev.reposi
 import { ProductDevRepository } from "../../repository/products/products.dev.repository"
 import { ProductUI } from "./components/product.ui"
 import { PurchaseUI } from "./components/purchase.ui"
+import toast, { Toaster } from 'react-hot-toast';
+import { Product } from "../../../domain/product/product.model"
+import "./restaurant.page.css"
 
 export const RestaurantPage = () => {
 
     const { getAllProduct } = useProduct(new ProductDevRepository())
     const { purchaseProduct } = useMetric(new MetricDevRepository())
 
+    const onPurchase = (product: Product) => {
+        toast.success(`You buy ${product.name}`);
+        purchaseProduct(product)
+    }
+
     return <div>
         <h1>Restaurant</h1>
-        {getAllProduct().map((product) => {
-            return <PurchaseUI onPurchase={() => purchaseProduct(product)}>
-                <ProductUI product={product} />
-            </PurchaseUI>
-        })}
+        <div className="gallery">
+            {getAllProduct().map((product) => {
+                return <PurchaseUI key={product.id} onPurchase={() => onPurchase(product)}>
+                    <ProductUI product={product} />
+                </PurchaseUI>
+            })}
+        </div>
+        <Toaster />
     </div>
 }

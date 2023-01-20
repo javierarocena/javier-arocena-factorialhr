@@ -9,7 +9,7 @@ export class MetricDevRepository implements MetricRepository {
 
   async getMetrics(range: DateRange): Promise<Metric[]> {
     const { startDate, endDate } = range;
-    await delay(2000);
+    await delay(100);
     return fetch(`${this.API_URL}?start=${startDate}&end=${endDate}`).then(
       (res) => res.json()
     );

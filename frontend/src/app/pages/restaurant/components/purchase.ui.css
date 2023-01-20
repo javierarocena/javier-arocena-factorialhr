@@ -1,0 +1,13 @@
+.purchase-item {
+    background: rgba(255, 255, 255, 0.062);
+    padding: 8px;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchase-button {
+    padding: 8px;
+    width: 100%;
+    font-size: 1.2rem;
+}
