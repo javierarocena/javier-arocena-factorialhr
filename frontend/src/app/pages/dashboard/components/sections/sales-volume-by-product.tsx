@@ -21,10 +21,10 @@ export const SalesVolumeByProduct = ({ metrics }: SalesVolumeByProductProps) => 
             data.push({ label: product?.name ?? '', value: counts[k] })
         }))
         data.sort((a, b) => b.value - a.value)
-        return data.slice(0, 5)
+        return data.slice(0, 10)
     }
     return <div className="chart-section">
-        <p>Top 5 sales volume products:</p>
+        <p>Top 10 sales volume products:</p>
         <BubbleChartUI data={getData()} />
     </div>
 }
